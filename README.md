@@ -33,6 +33,9 @@ The system takes three inputs:
 
 ## Getting Started
 
+For a walkthrough of how to use `run.sh` along with the evaluation scripts, see
+[docs/run_sh_usage.md](docs/run_sh_usage.md).
+
 1. **Analyze the data**: 
    - Look at `public_cases.json` to understand patterns
    - Look at `PRD.md` to understand the business problem
