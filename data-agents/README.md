@@ -7,9 +7,8 @@ This directory provides a minimal starting point for exploring the reimbursement
 1. (Optional) create a Python environment.
 2. Install the required packages:
    ```bash
-   pip install -r requirements.txt
+   python ../setup.py
    ```
-   Alternatively run `python ../setup.py` from the repository root for a full data science environment.
 
 ## Usage
 
