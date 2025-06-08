@@ -34,7 +34,16 @@ This repository contains everything you need to reverse engineer the legacy reim
 
 Stick to this workflow and you will be able to test multiple ideas quickly without getting stuck on the evaluation scripts.
 
-## 7. Iterative Refinement Strategy
+## 7. Statistical Validation & Modeling
+- Split `public_cases.json` into 80% train and 20% test.
+- Use MAE, MAPE, WAPE and RMSE to compare rule sets.
+- Formally test each heuristic using t-tests or ANOVA to confirm effects.
+- Grid-search bonus and penalty values on the train set to minimize MAE.
+- Benchmark a Random Forest regressor and inspect feature importances.
+- Cluster residuals from the test set to spot unmodeled patterns.
+- Incorporate the tuned parameters into `run.sh` before final evaluation.
+
+## 8. Iterative Refinement Strategy
 The prior discussion recommended repeatedly testing hypotheses drawn from the business context. Use the guidance in `FORECAST_DOC_VALIDATION.md` to structure this process:
 1. Confirm that the data is not a forecasting problem (lines 1‑9).
 2. Form rules from interviews—e.g., receipt thresholds, mileage bonuses, five‑day trip boosts.
