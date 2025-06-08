@@ -43,6 +43,7 @@ Key hints from **[INTERVIEWS.md §Lisa from Accounting](INTERVIEWS.md#lisa-from-
 - Run `./eval.sh` to test against the 1,000 public cases (per `README.md` lines 50–52 and 74–80).
 - Inspect the summary and error messages to refine your algorithm.
 - Do **not** modify `eval.sh` or the data files.
+- See [docs/workflow_overview.md](docs/workflow_overview.md) for a concise summary of the entire process.
 - Use `./scripts/log_eval.sh` to automatically append results with a timestamp to `eval_history.csv`.
 
 ## 5. Iterate with Notebooks
