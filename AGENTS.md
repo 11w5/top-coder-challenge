@@ -45,7 +45,7 @@ Key hints from **[INTERVIEWS.md §Lisa from Accounting](INTERVIEWS.md#lisa-from-
 - Do **not** modify `eval.sh` or the data files.
 
 ## 5. Iterate with Notebooks
-- Create notebooks (e.g. `01_EDA.ipynb`, `02_Heuristics.ipynb`, `03_MachineLearning.ipynb`, `04_Hybrid.ipynb`) to explore data and experiment with algorithms. Each notebook can call `eval.sh` via `subprocess` for feedback.
+- Create notebooks (e.g. `01_EDA.ipynb`, `02_Heuristics.ipynb`, `03_MachineLearning.ipynb`, `04_Hybrid.ipynb`, `05_statistical_validation.ipynb`) to explore data and experiment with algorithms. Each notebook can call `eval.sh` via `subprocess` for feedback.
 
 ## 6. Generate Final Results
 - When satisfied, run `./generate_results.sh` to produce `private_results.txt` for submission (see `README.md` lines 53–56 and `TASKS.md` lines 19–22).
@@ -60,6 +60,8 @@ Stick to this workflow and you will be able to test multiple ideas quickly witho
 - Benchmark a Random Forest regressor and inspect feature importances.
 - Cluster residuals from the test set to spot unmodeled patterns.
 - Incorporate the tuned parameters into `run.sh` before final evaluation.
+
+See `notebooks/05_statistical_validation.ipynb` for a worked example of these validation steps.
 
 To add rigor after you build a working script, split the public data into
 train and test sets and measure your rules statistically:
