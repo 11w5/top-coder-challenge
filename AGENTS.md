@@ -34,7 +34,52 @@ This repository contains everything you need to reverse engineer the legacy reim
 
 Stick to this workflow and you will be able to test multiple ideas quickly without getting stuck on the evaluation scripts.
 
-## 7. Iterative Refinement Strategy
+## 7. Statistical Validation & Modeling
+To add rigor after you build a working script, split the public data into
+train and test sets and measure your rules statistically:
+
+### A. Data Partitioning & Metric Definitions
+1. **Train/Test Split** – Randomly hold out 20% of the public cases for
+   evaluation and keep them untouched until the end.
+2. **Forecast-style Metrics** – Track MAE, MAPE, WAPE and RMSE so that rule
+   systems and machine‑learning models can be compared consistently.
+
+### B. Hypothesis Testing of Interview Heuristics
+Use t‑tests or ANOVA to confirm each rule and estimate its effect size:
+1. **Five‑Day Bonus** – Compare the mean per diem on 5‑day trips versus 4‑ or
+   6‑day trips and record the difference with a 95% confidence interval.
+2. **Efficiency Bonus** – Test whether 180–220 miles per day yields higher
+   totals than other mileage rates.
+3. **Receipt‑Range Effects** – Check for significant lift in the 50–800 range
+   and penalties below $50 using ANOVA or a non‑parametric equivalent.
+4. **Rounding Bonus** – Validate the extra $10 typical for receipt totals
+   ending in .49 or .99.
+5. **Simulated Weekday Effects** – Group trips using pseudo‑weekday logic and
+   verify the ~3% difference between "Tuesday" and "Friday" submissions.
+
+### C. Parameter Optimization via Grid Search
+Grid search candidate bonus and penalty values on the train set—such as a
+five‑day bonus between $0 and $150 or a receipt penalty factor under $50
+between 0.7 and 1.0—and choose the settings that minimize MAE.
+
+### D. Black‑Box Benchmark & Interpretability
+1. Fit a random‑forest regressor on `(days, miles, receipts)` and measure its
+   MAE and MAPE on the held‑out test data.
+2. Examine feature importances and partial‑dependence plots to find natural
+   breakpoints at around 100 miles, 5 days and receipt thresholds near 600 or
+   800.
+
+### E. Residual Clustering for Missing Signals
+Cluster the worst residuals from the test set to uncover patterns such as
+long trips over 8 days or receipts exceeding $2k, then encode additional
+rules if needed and re‑evaluate.
+
+### F. Final Integration & Rigorous Evaluation
+Insert the tuned parameters into `run.sh`, run `./generate_results.sh` on the
+private cases and report MAE, MAPE, WAPE and RMSE for your rule engine versus
+the random‑forest benchmark.
+
+## 8. Iterative Refinement Strategy
 The prior discussion recommended repeatedly testing hypotheses drawn from the business context. Use the guidance in `FORECAST_DOC_VALIDATION.md` to structure this process:
 1. Confirm that the data is not a forecasting problem (lines 1‑9).
 2. Form rules from interviews—e.g., receipt thresholds, mileage bonuses, five‑day trip boosts.
