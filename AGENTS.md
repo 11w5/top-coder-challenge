@@ -35,6 +35,14 @@ This repository contains everything you need to reverse engineer the legacy reim
 Stick to this workflow and you will be able to test multiple ideas quickly without getting stuck on the evaluation scripts.
 
 ## 7. Statistical Validation & Modeling
+- Split `public_cases.json` into 80% train and 20% test.
+- Use MAE, MAPE, WAPE and RMSE to compare rule sets.
+- Formally test each heuristic using t-tests or ANOVA to confirm effects.
+- Grid-search bonus and penalty values on the train set to minimize MAE.
+- Benchmark a Random Forest regressor and inspect feature importances.
+- Cluster residuals from the test set to spot unmodeled patterns.
+- Incorporate the tuned parameters into `run.sh` before final evaluation.
+
 To add rigor after you build a working script, split the public data into
 train and test sets and measure your rules statistically:
 
