@@ -34,7 +34,30 @@ This repository contains everything you need to reverse engineer the legacy reim
 
 Stick to this workflow and you will be able to test multiple ideas quickly without getting stuck on the evaluation scripts.
 
-## 7. Iterative Refinement Strategy
+## 7. Statistical Validation & Modeling
+To tighten your replication of the legacy rules, add a rigorous evaluation phase before
+iterating further:
+
+1. **Data Partitioning** – Split the 1,000 public cases into an 80% train set and
+   20% test set. Define MAE, MAPE, WAPE and RMSE to compare models on equal footing.
+2. **Hypothesis Testing of Interview Heuristics** – Run t‑tests or ANOVA on the train
+   set to confirm effects like the five‑day bonus, mileage efficiency band
+   (180–220 mi/day), receipt range impacts, rounding bonuses and pseudo‑weekday
+   shifts.
+3. **Parameter Optimization** – Grid search plausible bonus and penalty values to
+   minimize MAE on the train set before locking them into `run.sh`.
+4. **Black‑Box Benchmarking** – Fit a random‑forest regressor on the train set as a
+   baseline. Evaluate its MAE/MAPE on the held‑out test set and inspect feature
+   importances or partial dependence plots for natural thresholds.
+5. **Residual Clustering** – Cluster the largest errors on the test set to discover
+   patterns such as long trips or extreme receipt totals that might need additional
+   rules.
+6. **Final Evaluation** – Compare your tuned rule‑based approach against the random
+   forest on the test set using the defined metrics. Incorporate the best
+   parameters into `run.sh` and only then generate final results with
+   `./generate_results.sh`.
+
+## 8. Iterative Refinement Strategy
 The prior discussion recommended repeatedly testing hypotheses drawn from the business context. Use the guidance in `FORECAST_DOC_VALIDATION.md` to structure this process:
 1. Confirm that the data is not a forecasting problem (lines 1‑9).
 2. Form rules from interviews—e.g., receipt thresholds, mileage bonuses, five‑day trip boosts.
