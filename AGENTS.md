@@ -52,6 +52,8 @@ Key hints from **[INTERVIEWS.md §Lisa from Accounting](INTERVIEWS.md#lisa-from-
 
 Stick to this workflow and you will be able to test multiple ideas quickly without getting stuck on the evaluation scripts.
 
+See [docs/workflow_overview.md](docs/workflow_overview.md) for a concise summary of this process.
+
 ## 7. Statistical Validation & Modeling
 - Split `public_cases.json` into 80% train and 20% test.
 - Use MAE, MAPE, WAPE and RMSE to compare rule sets.

@@ -56,6 +56,9 @@ You can also open `notebooks/00_starter.ipynb` for a quick demonstration. That
 notebook relies on helper functions in `scripts/eval_utils.py` to call
 `eval.sh` and visualize the mileage and receipt distributions.
 
+For a high-level overview of the recommended workflow see
+[docs/workflow_overview.md](docs/workflow_overview.md).
+
 1. **Analyze the data**: 
    - Look at `public_cases.json` to understand patterns
    - Look at `PRD.md` to understand the business problem
