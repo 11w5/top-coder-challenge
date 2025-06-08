@@ -21,6 +21,9 @@ This document summarizes the key tasks required to complete the challenge. The s
 * Run `./eval.sh` against `public_cases.json` (see **README.md** lines 74–90) after each change to `run.sh`.
 * Review the score and the high‑error cases reported by the script. Adjust the algorithm to lower the average error and increase the number of exact matches.
 * Document parameter adjustments in notebooks or comments for future reference.
+* Apply the linear approach from `FORECAST_DOC_VALIDATION.md`: verify the
+  problem is deterministic, then iteratively test new business rules and measure
+  improvement with `eval.sh`.
 
 ## 5. Iterate toward a low score
 * Continue refining the logic or experiment with lightweight regression models in the notebooks.

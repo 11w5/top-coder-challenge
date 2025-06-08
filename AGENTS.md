@@ -33,3 +33,12 @@ This repository contains everything you need to reverse engineer the legacy reim
 - When satisfied, run `./generate_results.sh` to produce `private_results.txt` for submission (see `README.md` lines 53–56 and `TASKS.md` lines 19–22).
 
 Stick to this workflow and you will be able to test multiple ideas quickly without getting stuck on the evaluation scripts.
+
+## 7. Iterative Refinement Strategy
+The prior discussion recommended repeatedly testing hypotheses drawn from the business context. Use the guidance in `FORECAST_DOC_VALIDATION.md` to structure this process:
+1. Confirm that the data is not a forecasting problem (lines 1‑9).
+2. Form rules from interviews—e.g., receipt thresholds, mileage bonuses, five‑day trip boosts.
+3. After each change, run `./eval.sh` and note the exact and close match counts as well as the average error.
+4. Keep adjusting your algorithm based on these metrics until improvements plateau.
+
+This cycle of hypothesis and measurement should reveal the deterministic logic behind the legacy system.
