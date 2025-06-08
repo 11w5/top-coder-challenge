@@ -21,8 +21,8 @@ def main():
     # Core install
     packages = [
         "numpy pandas scipy scikit-learn matplotlib seaborn plotly",
-        "jupyter jupyterlab ipywidgets xgboost",
-        "statsmodels requests openpyxl"
+        "xgboost",
+        "statsmodels requests"
     ]
     
     for pkg_group in packages:
