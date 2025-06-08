@@ -15,6 +15,16 @@ Using the loader script, the dataset of 1000 public cases was normalized into `p
 
 These patterns match the interview hints. `FORECAST_DOC_VALIDATION.md` explains why we treat the data as a deterministic rule set rather than a forecasting problem.
 
+## Additional boundaries
+
+- **Low receipts penalty:** Totals below $50 often receive less than the base per diem.
+- **High receipts plateau:** Totals above ~$2,000 yield little extra reimbursement.
+- **Long trip taper:** Daily reimbursement drops sharply after day 8.
+- **Mileage plateau:** Per-mile rates level off once mileage exceeds about 1,000 miles.
+- **Receipt rounding quirk:** Amounts ending in `.49` or `.99` occur in about 30 cases and show different averages.
+
+These additional boundaries help narrow down the legacy formula and guide future modeling efforts.
+
 ## Forecastability measures
 
 Following `FORECAST_DOC_VALIDATION.md`, we summarized the definitions of Coefficient of Variation and SVD Entropy from the forecasting docs and computed them on the main input columns using `public_cases.csv`.
