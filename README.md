@@ -31,6 +31,23 @@ The system takes three inputs:
 
 - `public_cases.json` - 1,000 historical input/output examples
 
+### Quick Reference
+
+> **From [Getting Started](#getting-started)**
+> 1. **Analyze the data** – inspect `public_cases.json`, `PRD.md`, `INTERVIEWS.md` and the `data-agents` folder.
+> 2. **Create your implementation** – copy `run.sh.template` to `run.sh`, implement your logic and output only the reimbursement.
+> 3. **Test your solution** – run `./eval.sh` for feedback.
+> 4. **Submit** – run `./generate_results.sh`, add `arjun-krishna1` and complete the submission form.
+
+See **[TASKS.md §Analyze the documentation](TASKS.md#1-analyze-the-documentation)** for a checklist of files to review.
+
+Key hints from **[INTERVIEWS.md §Lisa from Accounting](INTERVIEWS.md#lisa-from-accounting)**:
+
+> "Take the per diem calculation. Everyone assumes there's a standard daily rate, and mostly there is. $100 a day seems to be the base."
+> "5-day trips almost always get a bonus."
+> "Mileage is definitely tiered. First 100 miles or so, you get the full rate—like 58 cents per mile. After that, it drops."
+> "If your receipts end in 49 or 99 cents, you often get a little extra money."
+
 ## Getting Started
 
 For a walkthrough of how to use `run.sh` along with the evaluation scripts, see

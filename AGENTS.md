@@ -9,6 +9,24 @@ This repository contains everything you need to reverse engineer the legacy reim
   - `INTERVIEWS.md` for business logic hints (e.g. base per diem around $100, 5‑day trip bonuses, mileage tapering after ~100 miles, receipt rounding quirks at .49/.99).
 - Examine the schema of `public_cases.json` to see the `input` fields and `expected_output` values.
 
+### Quick Reference
+
+> **From [README.md §Getting Started](README.md#getting-started)**
+> 1. **Analyze the data** – inspect `public_cases.json`, `PRD.md`, `INTERVIEWS.md` and the `data-agents` folder.
+> 2. **Create your implementation** – copy `run.sh.template` to `run.sh`, implement your logic and output only the reimbursement.
+> 3. **Test your solution** – run `./eval.sh` for feedback.
+> 4. **Submit** – run `./generate_results.sh`, add `arjun-krishna1` and complete the submission form.
+
+> **From [TASKS.md §Analyze the documentation](TASKS.md#1-analyze-the-documentation)**
+> Review PRD.md lines 33–46 and 48–52, README lines 30–68, and INTERVIEWS.md for quirks.
+
+Key hints from **[INTERVIEWS.md §Lisa from Accounting](INTERVIEWS.md#lisa-from-accounting)**:
+
+> "Take the per diem calculation. Everyone assumes there's a standard daily rate, and mostly there is. $100 a day seems to be the base."
+> "5-day trips almost always get a bonus."
+> "Mileage is definitely tiered. First 100 miles or so, you get the full rate—like 58 cents per mile. After that, it drops."
+> "If your receipts end in 49 or 99 cents, you often get a little extra money."
+
 ## 2. Environment Setup
 - If you need Python data science tools, run `python setup.py` (see `data-agents/README.md` lines 5–11) to install packages and Jupyter support.
 - Start Jupyter with `jupyter lab` or `jupyter notebook` after setup.
