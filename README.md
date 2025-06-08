@@ -52,6 +52,8 @@ Key hints from **[INTERVIEWS.md §Lisa from Accounting](INTERVIEWS.md#lisa-from-
 
 For a walkthrough of how to use `run.sh` along with the evaluation scripts, see
 [docs/run_sh_usage.md](docs/run_sh_usage.md).
+For a high-level overview of the entire workflow, read
+[docs/workflow_overview.md](docs/workflow_overview.md).
 You can also open `notebooks/00_starter.ipynb` for a quick demonstration. That
 notebook relies on helper functions in `scripts/eval_utils.py` to call
 `eval.sh` and visualize the mileage and receipt distributions.
