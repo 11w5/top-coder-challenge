@@ -36,20 +36,22 @@ The system takes three inputs:
 For a walkthrough of how to use `run.sh` along with the evaluation scripts, see
 [docs/run_sh_usage.md](docs/run_sh_usage.md).
 
-1. **Analyze the data**: 
+1. **Set up your environment**:
+   - Run `scripts/setup.sh` to install the optional data science tools
+2. **Analyze the data**: 
    - Look at `public_cases.json` to understand patterns
    - Look at `PRD.md` to understand the business problem
    - Look at `INTERVIEWS.md` to understand the business logic
    - Explore the `data-agents` folder for a basic data pipeline
-2. **Create your implementation**:
+3. **Create your implementation**:
    - Copy `run.sh.template` to `run.sh`
    - Implement your calculation logic
    - Make sure it outputs just the reimbursement amount
    - See [docs/run_sh_usage.md](docs/run_sh_usage.md) for a quick guide
-3. **Test your solution**: 
+4. **Test your solution**: 
    - Run `./eval.sh` to see how you're doing
    - Use the feedback to improve your algorithm
-4. **Submit**:
+5. **Submit**:
    - Run `./generate_results.sh` to get your final results.
    - Add `arjun-krishna1` to your repo.
    - Complete [the submission form](https://forms.gle/sKFBV2sFo2ADMcRt8).
