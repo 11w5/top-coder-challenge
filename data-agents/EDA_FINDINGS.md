@@ -4,7 +4,10 @@ This document summarizes observations from `notebooks/01_EDA.ipynb`, which explo
 
 ## Summary statistics
 
+The loader script normalizes the dataset into `public_cases.csv`. Basic statistics provide averages and spreads for trip duration, miles traveled, total receipts, and the expected reimbursement.
+
 Using the loader script, the dataset of 1000 public cases was normalized into `public_cases.csv`. Basic statistics show mean and median values for trip duration, miles traveled and total receipts, along with the expected reimbursement.
+
 
 ## Key patterns
 

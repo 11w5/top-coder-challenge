@@ -33,7 +33,6 @@ The system takes three inputs:
 
 ## Getting Started
 
-codex/create-run.sh-usage-guide-markdown
 For a walkthrough of how to use `run.sh` along with the evaluation scripts, see
 [docs/run_sh_usage.md](docs/run_sh_usage.md).
 
