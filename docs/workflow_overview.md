@@ -40,3 +40,6 @@ This document summarizes the iterative approach for reproducing the legacy reimb
    - If desired, split the public data into train and test sets and use the techniques in `docs/statistical_validation_modeling.md` to tune parameters.
 5. **Generate final results**
    - Once your logic is stable, run `./generate_results.sh` to create `private_results.txt` for submission.
+6. **Review additional tips**
+   - See [process_improvement_notes.md](process_improvement_notes.md) for ways to iterate more effectively.
+
