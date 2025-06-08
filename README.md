@@ -70,6 +70,7 @@ For a high-level overview of the recommended workflow see
    - Look at `PRD.md` to understand the business problem
    - Look at `INTERVIEWS.md` to understand the business logic
    - Explore the `data-agents` folder for a basic data pipeline
+   - Run `python data-agents/load_public_cases.py` to create `data-agents/public_cases.csv` for easier exploration
 3. **Create your implementation**:
    - Copy `run.sh.template` to `run.sh`
    - Implement your calculation logic
@@ -78,6 +79,7 @@ For a high-level overview of the recommended workflow see
 4. **Test your solution**: 
    - Run `./eval.sh` to see how you're doing
    - Use the feedback to improve your algorithm
+   - Execute `scripts/high_error_cases.sh` to save the top error cases for further study
 5. **Submit**:
    - Run `./generate_results.sh` to get your final results.
    - Add `arjun-krishna1` to your repo.
