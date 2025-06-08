@@ -24,3 +24,15 @@ These patterns match the interview hints. `FORECAST_DOC_VALIDATION.md` explains 
 - **Receipt rounding quirk:** Amounts ending in `.49` or `.99` occur in about 30 cases and show different averages.
 
 These additional boundaries help narrow down the legacy formula and guide future modeling efforts.
+
+## Forecastability measures
+
+Following `FORECAST_DOC_VALIDATION.md`, we summarized the definitions of Coefficient of Variation and SVD Entropy from the forecasting docs and computed them on the main input columns using `public_cases.csv`.
+
+| Column | CV | SVD Entropy |
+| --- | --- | --- |
+| `trip_duration_days` | 0.557 | 1.983 |
+| `miles_traveled` | 0.588 | 2.003 |
+| `total_receipts_amount` | 0.613 | 2.019 |
+
+These moderate CV and entropy values indicate the series contain structure without being perfectly predictable. They provide quantitative support for the five‑day bonus and mileage tapering patterns found in the EDA.

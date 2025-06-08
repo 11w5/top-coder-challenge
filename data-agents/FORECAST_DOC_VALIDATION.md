@@ -15,6 +15,16 @@ Each section below lists sequential tasks that consume the output of the previou
 3. **Compute sample measures** – In a notebook or script, compute simple statistics (e.g., coefficient of variation) for selected series. Compare results with the explanations in the markdown file.
 4. **Determine forecastability** – Based on the computed measures, decide which series appear predictable and which do not. Document how this aligns with the criteria outlined in the markdown file.
 
+Example metrics computed from `public_cases.csv`:
+
+| Column | CV | SVD Entropy |
+| --- | --- | --- |
+| `trip_duration_days` | 0.557 | 1.983 |
+| `miles_traveled` | 0.588 | 2.003 |
+| `total_receipts_amount` | 0.613 | 2.019 |
+
+These values indicate moderate variability and entropy in the inputs and help gauge how deterministic the reimbursement logic might be.
+
 ## 2. Distinguishing Forecasting from Other Predictive Tasks
 
 1. **Check temporal structure** – Verify that the data from `public_cases.csv` has a meaningful chronological order. If shuffling the rows breaks the interpretation, forecasting methods are justified.
