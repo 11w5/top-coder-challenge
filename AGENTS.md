@@ -34,7 +34,34 @@ This repository contains everything you need to reverse engineer the legacy reim
 
 Stick to this workflow and you will be able to test multiple ideas quickly without getting stuck on the evaluation scripts.
 
-## 7. Iterative Refinement Strategy
+## 7. Statistical Validation & Modeling
+Between generating your initial results and embarking on iterative refinement, incorporate a data‑driven validation phase:
+
+### A. Data Partitioning & Metric Definitions
+1. **Train/Test Split** – Randomly divide the 1,000 public cases into an 80% train / 20% test set and keep the test portion untouched until final evaluation.
+2. **Forecast‑style Metrics** – Track MAE, MAPE, WAPE and RMSE so rule‑based and model‑based approaches can be compared on equal footing.
+
+### B. Hypothesis Testing of Interview Heuristics
+For each rule inspired by the interviews, perform a statistical test on the train set:
+1. **Five‑Day Bonus** – Two‑sample t‑test comparing five‑day trips to four‑ and six‑day trips.
+2. **Efficiency Bonus** – Test trips averaging 180–220 miles per day against others.
+3. **Receipt‑Range Effects** – ANOVA or Kruskal‑Wallis across receipt buckets (<50, 50–600, 600–800, >800).
+4. **Rounding Bonus** – t‑test for receipts ending in .49/.99 versus the rest.
+5. **Simulated Weekday Effects** – Validate the 3% shift between "Tuesday" and "Friday" submissions.
+
+### C. Parameter Optimization via Grid Search
+Search over plausible bonus and penalty values on the train set to minimize MAE.
+
+### D. Black‑Box Benchmark & Interpretability
+Train a Random Forest regressor as an accuracy upper bound and inspect feature importances or partial dependence plots for natural breakpoints.
+
+### E. Residual Clustering for Missing Signals
+Cluster the worst‑offending residuals on the test set to uncover any additional patterns, such as long trips over eight days or very high receipts.
+
+### F. Final Integration & Rigorous Evaluation
+Incorporate tuned parameters back into `run.sh`, rerun `./generate_results.sh`, and compare MAE, MAPE, WAPE and RMSE against the Random Forest benchmark as well as prior iterations.
+
+## 8. Iterative Refinement Strategy
 The prior discussion recommended repeatedly testing hypotheses drawn from the business context. Use the guidance in `FORECAST_DOC_VALIDATION.md` to structure this process:
 1. Confirm that the data is not a forecasting problem (lines 1‑9).
 2. Form rules from interviews—e.g., receipt thresholds, mileage bonuses, five‑day trip boosts.
