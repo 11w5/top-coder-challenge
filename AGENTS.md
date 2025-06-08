@@ -113,3 +113,4 @@ The prior discussion recommended repeatedly testing hypotheses drawn from the bu
 4. Keep adjusting your algorithm based on these metrics until improvements plateau.
 
 This cycle of hypothesis and measurement should reveal the deterministic logic behind the legacy system.
+See [docs/workflow_overview.md](docs/workflow_overview.md) for a concise summary of these steps.
