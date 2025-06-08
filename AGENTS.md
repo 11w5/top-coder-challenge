@@ -43,6 +43,7 @@ Key hints from **[INTERVIEWS.md §Lisa from Accounting](INTERVIEWS.md#lisa-from-
 - Run `./eval.sh` to test against the 1,000 public cases (per `README.md` lines 50–52 and 74–80).
 - Inspect the summary and error messages to refine your algorithm.
 - Do **not** modify `eval.sh` or the data files.
+- Use `./scripts/log_eval.sh` to automatically append results with a timestamp to `eval_history.csv`.
 
 ## 5. Iterate with Notebooks
 - Create notebooks (e.g. `01_EDA.ipynb`, `02_Heuristics.ipynb`, `03_MachineLearning.ipynb`, `04_Hybrid.ipynb`, `05_statistical_validation.ipynb`) to explore data and experiment with algorithms. Each notebook can call `eval.sh` via `subprocess` for feedback.
@@ -113,7 +114,7 @@ the random‑forest benchmark.
 The prior discussion recommended repeatedly testing hypotheses drawn from the business context. Use the guidance in `FORECAST_DOC_VALIDATION.md` to structure this process:
 1. Confirm that the data is not a forecasting problem (lines 1‑9).
 2. Form rules from interviews—e.g., receipt thresholds, mileage bonuses, five‑day trip boosts.
-3. After each change, run `./eval.sh` and note the exact and close match counts as well as the average error.
+3. After each change, run `./scripts/log_eval.sh` so the timestamped metrics are stored in `eval_history.csv`.
 4. Keep adjusting your algorithm based on these metrics until improvements plateau.
 
 This cycle of hypothesis and measurement should reveal the deterministic logic behind the legacy system.
