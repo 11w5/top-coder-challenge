@@ -35,6 +35,9 @@ The system takes three inputs:
 
 For a walkthrough of how to use `run.sh` along with the evaluation scripts, see
 [docs/run_sh_usage.md](docs/run_sh_usage.md).
+You can also open `notebooks/00_starter.ipynb` for a quick demonstration. That
+notebook relies on helper functions in `scripts/eval_utils.py` to call
+`eval.sh` and visualize the mileage and receipt distributions.
 
 1. **Analyze the data**: 
    - Look at `public_cases.json` to understand patterns
