@@ -29,7 +29,7 @@ Key hints from **[INTERVIEWS.md §Lisa from Accounting](INTERVIEWS.md#lisa-from-
 
 ## 2. Environment Setup
 - If you need Python data science tools, run `python setup.py` (see `data-agents/README.md` lines 5–11) to install packages and Jupyter support.
-- Start Jupyter with `jupyter lab` or `jupyter notebook` after setup.
+- Document in a `jupyter notebook` after setup so that I can refference later. No need to download the library, I just need you to write in a readable JSON format in ipynb format.
 
 ## 3. Implement `run.sh`
 - Copy `run.sh.template` to `run.sh` and fill in your calculation logic. Ensure the script:
