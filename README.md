@@ -38,6 +38,8 @@ For a walkthrough of how to use `run.sh` along with the evaluation scripts, see
 You can also open `notebooks/00_starter.ipynb` for a quick demonstration. That
 notebook relies on helper functions in `scripts/eval_utils.py` to call
 `eval.sh` and visualize the mileage and receipt distributions.
+For a short overview of the entire workflow, see
+[docs/workflow_overview.md](docs/workflow_overview.md).
 
 1. **Analyze the data**: 
    - Look at `public_cases.json` to understand patterns

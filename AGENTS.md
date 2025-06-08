@@ -25,6 +25,7 @@ This repository contains everything you need to reverse engineer the legacy reim
 - Run `./eval.sh` to test against the 1,000 public cases (per `README.md` lines 50–52 and 74–80).
 - Inspect the summary and error messages to refine your algorithm.
 - Do **not** modify `eval.sh` or the data files.
+- See [docs/workflow_overview.md](docs/workflow_overview.md) for a concise summary of the entire process.
 
 ## 5. Iterate with Notebooks
 - Create notebooks (e.g. `01_EDA.ipynb`, `02_Heuristics.ipynb`, `03_MachineLearning.ipynb`, `04_Hybrid.ipynb`) to explore data and experiment with algorithms. Each notebook can call `eval.sh` via `subprocess` for feedback.
