@@ -9,6 +9,24 @@ This repository contains everything you need to reverse engineer the legacy reim
   - `INTERVIEWS.md` for business logic hints (e.g. base per diem around $100, 5‑day trip bonuses, mileage tapering after ~100 miles, receipt rounding quirks at .49/.99).
 - Examine the schema of `public_cases.json` to see the `input` fields and `expected_output` values.
 
+### Quick Reference
+
+> **From [README.md §Getting Started](README.md#getting-started)**
+> 1. **Analyze the data** – inspect `public_cases.json`, `PRD.md`, `INTERVIEWS.md` and the `data-agents` folder.
+> 2. **Create your implementation** – copy `run.sh.template` to `run.sh`, implement your logic and output only the reimbursement.
+> 3. **Test your solution** – run `./eval.sh` for feedback.
+> 4. **Submit** – run `./generate_results.sh`, add `arjun-krishna1` and complete the submission form.
+
+> **From [TASKS.md §Analyze the documentation](TASKS.md#1-analyze-the-documentation)**
+> Review PRD.md lines 33–46 and 48–52, README lines 30–68, and INTERVIEWS.md for quirks.
+
+Key hints from **[INTERVIEWS.md §Lisa from Accounting](INTERVIEWS.md#lisa-from-accounting)**:
+
+> "Take the per diem calculation. Everyone assumes there's a standard daily rate, and mostly there is. $100 a day seems to be the base."
+> "5-day trips almost always get a bonus."
+> "Mileage is definitely tiered. First 100 miles or so, you get the full rate—like 58 cents per mile. After that, it drops."
+> "If your receipts end in 49 or 99 cents, you often get a little extra money."
+
 ## 2. Environment Setup
 - If you need Python data science tools, run `python setup.py` (see `data-agents/README.md` lines 5–11) to install packages and Jupyter support.
 - Start Jupyter with `jupyter lab` or `jupyter notebook` after setup.
@@ -26,14 +44,17 @@ This repository contains everything you need to reverse engineer the legacy reim
 - Inspect the summary and error messages to refine your algorithm.
 - Do **not** modify `eval.sh` or the data files.
 - See [docs/workflow_overview.md](docs/workflow_overview.md) for a concise summary of the entire process.
+- Use `./scripts/log_eval.sh` to automatically append results with a timestamp to `eval_history.csv`.
 
 ## 5. Iterate with Notebooks
-- Create notebooks (e.g. `01_EDA.ipynb`, `02_Heuristics.ipynb`, `03_MachineLearning.ipynb`, `04_Hybrid.ipynb`) to explore data and experiment with algorithms. Each notebook can call `eval.sh` via `subprocess` for feedback.
+- Create notebooks (e.g. `01_EDA.ipynb`, `02_Heuristics.ipynb`, `03_MachineLearning.ipynb`, `04_Hybrid.ipynb`, `05_statistical_validation.ipynb`) to explore data and experiment with algorithms. Each notebook can call `eval.sh` via `subprocess` for feedback.
 
 ## 6. Generate Final Results
 - When satisfied, run `./generate_results.sh` to produce `private_results.txt` for submission (see `README.md` lines 53–56 and `TASKS.md` lines 19–22).
 
 Stick to this workflow and you will be able to test multiple ideas quickly without getting stuck on the evaluation scripts.
+
+See [docs/workflow_overview.md](docs/workflow_overview.md) for a concise summary of this process.
 
 ## 7. Statistical Validation & Modeling
 - Split `public_cases.json` into 80% train and 20% test.
@@ -43,6 +64,8 @@ Stick to this workflow and you will be able to test multiple ideas quickly witho
 - Benchmark a Random Forest regressor and inspect feature importances.
 - Cluster residuals from the test set to spot unmodeled patterns.
 - Incorporate the tuned parameters into `run.sh` before final evaluation.
+
+See `notebooks/05_statistical_validation.ipynb` for a worked example of these validation steps.
 
 To add rigor after you build a working script, split the public data into
 train and test sets and measure your rules statistically:
@@ -92,7 +115,7 @@ the random‑forest benchmark.
 The prior discussion recommended repeatedly testing hypotheses drawn from the business context. Use the guidance in `FORECAST_DOC_VALIDATION.md` to structure this process:
 1. Confirm that the data is not a forecasting problem (lines 1‑9).
 2. Form rules from interviews—e.g., receipt thresholds, mileage bonuses, five‑day trip boosts.
-3. After each change, run `./eval.sh` and note the exact and close match counts as well as the average error.
+3. After each change, run `./scripts/log_eval.sh` so the timestamped metrics are stored in `eval_history.csv`.
 4. Keep adjusting your algorithm based on these metrics until improvements plateau.
 
 This cycle of hypothesis and measurement should reveal the deterministic logic behind the legacy system.
