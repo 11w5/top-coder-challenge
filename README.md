@@ -108,6 +108,10 @@ Run `./eval.sh` to test your solution against all 1,000 cases. The script will s
 - **Average error**: Mean absolute difference from expected outputs
 - **Score**: Lower is better (combines accuracy and precision)
 
+For convenience, you can run `./scripts/log_eval.sh` instead. It appends each
+evaluation to `eval_history.csv` with a timestamp so you can track your progress
+over time.
+
 Your submission will be tested against `private_cases.json` which does not include the outputs.
 
 ## Submission
